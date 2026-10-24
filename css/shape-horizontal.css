@@ -1,0 +1,9 @@
+:root { --cgt-ratio: 3 / 2; }
+
+/* Обложки, которые режет нижняя грань плитки, - полупрозрачные.
+   Геометрия мозаики: 3 колонки, обложка 43cqw в высоту, шаг ряда 46cqw, отступ 4cqw.
+   Обрезанный ряд для этой формы начинается с обложки №4. */
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div:first-child > div:nth-child(2) > div > div > div:nth-child(n+4) {
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,.2) 100%) !important;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,.2) 100%) !important;
+}

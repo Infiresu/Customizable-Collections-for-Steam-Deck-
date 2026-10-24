@@ -1,0 +1,1 @@
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div[id] > div:first-child { display: none !important; }

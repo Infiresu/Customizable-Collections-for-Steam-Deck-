@@ -1,0 +1,279 @@
+{
+  "name": "Customizable Collections",
+  "author": "Infiresu",
+  "version": "v1.0",
+  "target": "Library",
+  "manifest_version": 9,
+  "description": "Customizable Collections grid: tile shape and corner radius, number of columns, text size and position, blur, hiding elements. For smooth scrolling with large tiles, install the Collection Renamer Decky plugin.",
+  "inject": {
+    "css/base.css": [
+      "SP"
+    ]
+  },
+  "patches": {
+    "Tile shape": {
+      "default": "Square",
+      "type": "dropdown",
+      "values": {
+        "Square": {
+          "css/shape-square.css": [
+            "SP"
+          ]
+        },
+        "Vertical rectangle": {
+          "css/shape-vertical.css": [
+            "SP"
+          ]
+        },
+        "Horizontal rectangle": {
+          "css/shape-horizontal.css": [
+            "SP"
+          ]
+        }
+      }
+    },
+    "Game cover corner radius": {
+      "default": "10px",
+      "type": "slider",
+      "values": {
+        "0px": {
+          "css/radius-0.css": [
+            "SP"
+          ]
+        },
+        "​​": {
+          "css/radius-2.css": [
+            "SP"
+          ]
+        },
+        "​​​": {
+          "css/radius-4.css": [
+            "SP"
+          ]
+        },
+        "​​​​": {
+          "css/radius-6.css": [
+            "SP"
+          ]
+        },
+        "​​​​​": {
+          "css/radius-8.css": [
+            "SP"
+          ]
+        },
+        "10px": {
+          "css/radius-10.css": [
+            "SP"
+          ]
+        },
+        "​​​​​​​": {
+          "css/radius-12.css": [
+            "SP"
+          ]
+        },
+        "​​​​​​​​": {
+          "css/radius-14.css": [
+            "SP"
+          ]
+        },
+        "16px": {
+          "css/radius-16.css": [
+            "SP"
+          ]
+        }
+      }
+    },
+    "Columns per row": {
+      "default": "4",
+      "type": "slider",
+      "values": {
+        "2": {
+          "css/cols-2.css": [
+            "SP"
+          ]
+        },
+        "3": {
+          "css/cols-3.css": [
+            "SP"
+          ]
+        },
+        "4": {
+          "css/cols-4.css": [
+            "SP"
+          ]
+        },
+        "5": {
+          "css/cols-5.css": [
+            "SP"
+          ]
+        },
+        "6": {
+          "css/cols-6.css": [
+            "SP"
+          ]
+        },
+        "7": {
+          "css/cols-7.css": [
+            "SP"
+          ]
+        },
+        "8": {
+          "css/cols-8.css": [
+            "SP"
+          ]
+        }
+      }
+    },
+    "Text size": {
+      "default": "100%",
+      "type": "slider",
+      "values": {
+        "50%": {
+          "css/font-50.css": [
+            "SP"
+          ]
+        },
+        "​​": {
+          "css/font-60.css": [
+            "SP"
+          ]
+        },
+        "​​​": {
+          "css/font-70.css": [
+            "SP"
+          ]
+        },
+        "​​​​": {
+          "css/font-80.css": [
+            "SP"
+          ]
+        },
+        "​​​​​": {
+          "css/font-90.css": [
+            "SP"
+          ]
+        },
+        "100%": {
+          "css/font-100.css": [
+            "SP"
+          ]
+        },
+        "​​​​​​​": {
+          "css/font-110.css": [
+            "SP"
+          ]
+        },
+        "​​​​​​​​": {
+          "css/font-120.css": [
+            "SP"
+          ]
+        },
+        "​​​​​​​​​": {
+          "css/font-130.css": [
+            "SP"
+          ]
+        },
+        "​​​​​​​​​​": {
+          "css/font-140.css": [
+            "SP"
+          ]
+        },
+        "150%": {
+          "css/font-150.css": [
+            "SP"
+          ]
+        }
+      }
+    },
+    "Text horizontal position": {
+      "default": "Center",
+      "type": "slider",
+      "values": {
+        "Left": {
+          "css/x-left.css": [
+            "SP"
+          ]
+        },
+        "Center": {
+          "css/x-center.css": [
+            "SP"
+          ]
+        },
+        "Right": {
+          "css/x-right.css": [
+            "SP"
+          ]
+        }
+      }
+    },
+    "Text vertical position": {
+      "default": "Bottom",
+      "type": "slider",
+      "values": {
+        "Top": {
+          "css/y-top.css": [
+            "SP"
+          ]
+        },
+        "Center": {
+          "css/y-middle.css": [
+            "SP"
+          ]
+        },
+        "Bottom": {
+          "css/y-bottom.css": [
+            "SP"
+          ]
+        }
+      }
+    },
+    "Blur behind text": {
+      "default": "No",
+      "type": "checkbox",
+      "values": {
+        "No": {},
+        "Yes": {
+          "css/scrim.css": [
+            "SP"
+          ]
+        }
+      }
+    },
+    "Hide name": {
+      "default": "No",
+      "type": "checkbox",
+      "values": {
+        "No": {},
+        "Yes": {
+          "css/hide-name.css": [
+            "SP"
+          ]
+        }
+      }
+    },
+    "Hide game count": {
+      "default": "No",
+      "type": "checkbox",
+      "values": {
+        "No": {},
+        "Yes": {
+          "css/hide-count.css": [
+            "SP"
+          ]
+        }
+      }
+    },
+    "Hide bolt icon": {
+      "default": "No",
+      "type": "checkbox",
+      "values": {
+        "No": {},
+        "Yes": {
+          "css/hide-bolt.css": [
+            "SP"
+          ]
+        }
+      }
+    }
+  }
+}

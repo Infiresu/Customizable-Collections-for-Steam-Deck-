@@ -1,0 +1,162 @@
+/* Правила действуют только на сетку списка коллекций (см. :has со счётчиком). */
+:root {
+  --cgt-cols: 4;
+  --cgt-ratio: 1 / 1;
+  --cgt-font: 1;
+  --cgt-x: center;
+  --cgt-y: flex-end;
+  --cgt-ta: center;
+  --cgt-px: 50%;
+  --cgt-py: 100%;
+  --cgt-radius: 10px;
+}
+
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) {
+  grid-template-columns: repeat(var(--cgt-cols), minmax(0, 1fr)) !important;
+  grid-auto-rows: auto !important;
+}
+
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] {
+  width: 100% !important;
+  height: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  aspect-ratio: var(--cgt-ratio) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  isolation: isolate !important;
+  container-type: inline-size !important;
+}
+
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div:first-child {
+  width: 100% !important;
+  height: 100% !important;
+  isolation: isolate !important;
+}
+
+/* ---- Адаптивная сетка обложек игр внутри плитки ----
+   Обложки идут рядами по 3 штуки, ширина считается от ширины плитки (cqw),
+   лишние уходят на следующую строку, а то, что не влезло в рамку, обрезается. */
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div:first-child > div:nth-child(2) {
+  position: absolute !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important;
+  padding: 0 !important;
+  transform: none !important; rotate: none !important; scale: none !important; translate: none !important; margin: 0 !important;
+  overflow: hidden !important;
+}
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div:first-child > div:nth-child(2) > div {
+  position: absolute !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important;
+  padding: 0 !important;
+  transform: none !important; rotate: none !important; scale: none !important; translate: none !important; margin: 0 !important;
+}
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div:first-child > div:nth-child(2) > div > div {
+  position: absolute !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important;
+  transform: none !important; rotate: none !important; scale: none !important; translate: none !important; margin: 0 !important;
+  bottom: auto !important;
+  height: auto !important;
+  min-height: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-template-columns: repeat(auto-fill, minmax(28cqw, 1fr)) !important;
+  grid-auto-rows: auto !important;
+  align-content: start !important;
+  justify-items: stretch !important;
+  gap: 3cqw !important;
+  padding: 4cqw !important;
+  box-sizing: border-box !important;
+}
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div:first-child > div:nth-child(2) > div > div > div {
+  position: relative !important;
+  top: auto !important; right: auto !important; bottom: auto !important; left: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  min-width: 0 !important;
+  aspect-ratio: 2 / 3 !important;
+  transform: none !important; rotate: none !important; scale: none !important; translate: none !important; margin: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  border-radius: var(--cgt-radius) !important;
+  /* clip-path режет всё содержимое по скруглению, включая рамки/тени/псевдоэлементы,
+     которые overflow:hidden не обрезает */
+  clip-path: inset(0 round var(--cgt-radius)) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+/* Всё внутри ячейки обложки: убираем родные смещения/масштаб/отступы Steam.
+   Именно они (padding-хак пропорций, scale, отрицательные margin) давали "зум" ~1.5x. */
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div:first-child > div:nth-child(2) > div > div > div * {
+  transform: none !important; rotate: none !important; scale: none !important; translate: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  zoom: 1 !important;
+  min-width: 0 !important; min-height: 0 !important;
+  max-width: none !important; max-height: none !important;
+  border-radius: inherit !important;
+  box-shadow: none !important;
+}
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div:first-child > div:nth-child(2) > div > div > div div {
+  position: absolute !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important;
+  width: 100% !important; height: 100% !important;
+}
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div:first-child > div:nth-child(2) > div > div > div img {
+  position: absolute !important;
+  top: 0 !important; left: 0 !important; right: auto !important; bottom: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: 50% 50% !important;
+  background-size: cover !important;
+}
+/* одиночная крупная обложка (если она есть в варианте плитки) */
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div:first-child > div:nth-child(2) img {
+  object-position: 50% 50% !important;
+}
+
+/* ---- Подпись ---- */
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div[id] {
+  position: absolute !important;
+  top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important;
+  z-index: 5 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: var(--cgt-x) !important;
+  justify-content: var(--cgt-y) !important;
+  padding: 10px !important;
+  margin: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  box-sizing: border-box !important;
+  pointer-events: none !important;
+  text-align: var(--cgt-ta) !important;
+}
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div[id] > div {
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 0 auto !important;
+  align-self: var(--cgt-x) !important;
+  text-align: var(--cgt-ta) !important;
+  text-indent: 0 !important;
+  zoom: var(--cgt-font) !important;
+}
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source,
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source * {
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: var(--cgt-ta) !important;
+  text-indent: 0 !important;
+}
+
+/* ---- Плитка: размеры не зависят от содержимого ---- */
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] {
+  /* размеры плитки не зависят от содержимого - браузеру не нужно перемерять ряд при подгрузке картинок */
+  contain: layout paint style !important;
+}
+
+/* Контейнер сетки: Steam задаёт ему высоту по родному размеру плиток (ряды по 185px) - даём ему подстроиться под реальные */
+[role="tabpanel"][id$="Collections_Content"] div:has(> [role="grid"] > [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) {
+  height: auto !important;
+}

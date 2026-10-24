@@ -1,0 +1,15 @@
+[role="tabpanel"][id$="Collections_Content"] [role="grid"]:has(> [role="row"] > [role="gridcell"] > [role="link"] > div[id] .tool-tip-source) > [role="row"] > [role="gridcell"] > [role="link"] > div[id]::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  background: radial-gradient(ellipse 120% 95% at var(--cgt-px) var(--cgt-py),
+    rgba(0,0,0,.55) 0%, rgba(0,0,0,.44) 22%, rgba(0,0,0,.28) 42%, rgba(0,0,0,.13) 62%, rgba(0,0,0,.04) 80%, transparent 100%) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-mask-image: radial-gradient(ellipse 125% 100% at var(--cgt-px) var(--cgt-py),
+    #000 0%, rgba(0,0,0,.92) 20%, rgba(0,0,0,.72) 38%, rgba(0,0,0,.45) 56%, rgba(0,0,0,.2) 74%, rgba(0,0,0,.06) 88%, transparent 100%) !important;
+  mask-image: radial-gradient(ellipse 125% 100% at var(--cgt-px) var(--cgt-py),
+    #000 0%, rgba(0,0,0,.92) 20%, rgba(0,0,0,.72) 38%, rgba(0,0,0,.45) 56%, rgba(0,0,0,.2) 74%, rgba(0,0,0,.06) 88%, transparent 100%) !important;
+}
